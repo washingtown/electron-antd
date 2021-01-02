@@ -29,8 +29,8 @@ export const WindowButtons: React.FC<WindowButtonsProps> = (props = { maximize: 
     const close = () => {
         if (props.closeConfirm) {
             Modal.confirm({
-                title: '确认退出?',
-                content: '确认退出程序?',
+                title: 'Confirm',
+                content: 'Are you sure you want to Exit?',
                 centered: true,
                 onOk: () => {
                     ipcRenderer.send('window-close');
