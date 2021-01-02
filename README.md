@@ -1,7 +1,9 @@
-# Electron-Antd
-
+# Electron-Antd  
+  
 A sample of Electron App using [Create React App](https://github.com/facebook/create-react-app) and [Ant Design](https://ant.design/i).
 
+# Preview
+![image](https://github.com/washingtown/electron-antd/blob/master/public/HomeScreen.png?raw=true)
 
 ## How to use
 
