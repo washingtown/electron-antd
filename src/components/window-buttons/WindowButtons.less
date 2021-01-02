@@ -1,0 +1,25 @@
+@win-btn-hover-color:#112a45;
+@win-btn-close-hover-color:#f5222d;
+.win-btns-wrapper{
+    height: 28px;
+    display: flex;
+    -webkit-app-region: no-drag;
+    .win-btn{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 100%;
+        width: 44px;
+    }
+    .win-btn-normal{
+        &:hover{
+            background-color:@win-btn-hover-color;
+        }
+    }
+    .win-btn-close{
+        &:hover{
+            background-color: @win-btn-close-hover-color;
+        }
+    }
+}

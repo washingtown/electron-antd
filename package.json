@@ -23,16 +23,19 @@
     }
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "concurrently -k \"cross-env BROWSER=none yarn start:server\" \"wait-on http://localhost:3000 && yarn start:electron\"",
+    "start:electron": "electron .",
+    "start:server": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-pack": "electron-builder",
-    "preelectron-pack": "yarn build"
+    "package": "electron-builder",
+    "prepackage": "yarn build"
   },
   "dependencies": {
+    "@ant-design/pro-layout": "^6.9.2",
     "@babel/preset-typescript": "^7.12.7",
+    "@craco/craco": "^6.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -42,11 +45,15 @@
     "@types/react-dom": "^16.9.8",
     "antd": "^4.9.4",
     "babel-loader": "8.1.0",
+    "craco-antd": "^1.19.0",
     "electron-is-dev": "^1.2.0",
     "less": "^4.0.0",
+    "less-loader": "^7.2.0",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
@@ -70,6 +77,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.6",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.3",
     "electron": "^11.1.1",
