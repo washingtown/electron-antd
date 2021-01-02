@@ -36,7 +36,7 @@ export const Home: React.FC<{}> = (props) => {
                     icon={<img height="100%" src={craIcon} alt=""/>}
                     onClick={() => { openUrl("https://create-react-app.dev/") }}
                 >
-                    Ant Design
+                    Create React App
                 </Button>
             ]}
         />
