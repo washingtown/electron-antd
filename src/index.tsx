@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { ConfigProvider } from 'antd';
 
 ReactDOM.render(
-  <ConfigProvider>
+  <ConfigProvider locale={zhCN}>
       <App />
   </ConfigProvider>,
   document.getElementById('root')

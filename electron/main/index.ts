@@ -1,6 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const isDev = require('electron-is-dev');
-
+import path from 'path';
+import { app, BrowserWindow, ipcMain } from 'electron';
+import isDev from 'electron-is-dev';
 function createWindow() {
     const win = new BrowserWindow({
         width: 800,
@@ -11,7 +11,8 @@ function createWindow() {
         frame:false
     })
     win.webContents.openDevTools(); //调试用，正式版请删掉这一行
-    win.loadURL(isDev ? 'http://localhost:3000' : `file://${__dirname}/index.html`);
+    const proEntry = `file://${path.join(__dirname,'../index.html')}`;
+    win.loadURL(isDev ? 'http://localhost:3000' : proEntry);
     win.on('maximize', () => {
         win.webContents.send('window-maximized');
     })
