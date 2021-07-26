@@ -6,6 +6,9 @@ module.exports = {
     plugins: [
       new WebpackBar({name:"Renderer", profile: true }),
     ],
+    configure: {
+      target: 'electron-renderer'
+    }
   },
   plugins: [
     {

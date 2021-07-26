@@ -1,6 +1,6 @@
 import { Button, Card, Input, List } from 'antd';
 import React, { useState } from 'react';
-var {promises} = window.require('fs');
+import {promises} from 'fs';
 export const LocalFile: React.FC = () => {
     const [currentDir, setCurrentDir] = useState<string>("./");
     const [contents, setContents] = useState<string[]>([]);

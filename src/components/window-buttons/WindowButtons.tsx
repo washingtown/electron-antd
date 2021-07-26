@@ -1,7 +1,7 @@
 import { Modal } from 'antd';
 import { useState } from 'react'
 import './WindowButtons.less'
-const { ipcRenderer } =window.require('electron');
+import { ipcRenderer } from 'electron';
 
 export interface WindowButtonsProps{
     maximize?: boolean;
