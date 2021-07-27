@@ -16,7 +16,6 @@ const webpackConfig: Configuration = {
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, '../src'),
-      '@elc': path.resolve(__dirname, '../electron'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
