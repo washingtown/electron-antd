@@ -2111,12 +2111,21 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
-"@types/react@^16", "@types/react@^16.9.53":
+"@types/react@^16":
   version "16.14.2"
   resolved "https://registry.npm.taobao.org/@types/react/download/@types/react-16.14.2.tgz#85dcc0947d0645349923c04ccef6018a1ab7538c"
   integrity sha1-hdzAlH0GRTSZI8BMzvYBihq3U4w=
   dependencies:
     "@types/prop-types" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17.0.15":
+  version "17.0.15"
+  resolved "https://registry.nlark.com/@types/react/download/@types/react-17.0.15.tgz?cache=0&sync_timestamp=1627126099658&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Freact%2Fdownload%2F%40types%2Freact-17.0.15.tgz#c7533dc38025677e312606502df7656a6ea626d0"
+  integrity sha1-x1M9w4AlZ34xJgZQLfdlam6mJtA=
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
     csstype "^3.0.2"
 
 "@types/resolve@0.0.8":
@@ -2125,6 +2134,11 @@
   integrity sha1-8mB00jjgJlnjI84aE9BB7uKA4ZQ=
   dependencies:
     "@types/node" "*"
+
+"@types/scheduler@*":
+  version "0.16.2"
+  resolved "https://registry.nlark.com/@types/scheduler/download/@types/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
+  integrity sha1-GmL4lSVyPd4kuhsBsJK/XfitTTk=
 
 "@types/source-list-map@*":
   version "0.1.2"

@@ -1,7 +1,7 @@
 import { Modal } from 'antd';
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import { remote, BrowserWindow } from 'electron';
 import './WindowButtons.less'
-import { ipcRenderer } from 'electron';
 
 export interface WindowButtonsProps{
     maximize?: boolean;
@@ -24,8 +24,20 @@ const CloseIcon:React.FC<SvgIconProps> = ({color="white"})=> (
     <svg fill={color} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8583" width="12" height="12"><path d="M521.694 449.297L111.41 39.014a51.2 51.2 0 1 0-72.43 72.363l410.282 410.317L38.98 932.01a51.2 51.2 0 1 0 72.397 72.396l410.317-410.282 410.317 410.282a51.2 51.2 0 1 0 72.396-72.362L594.125 521.694l410.282-410.283a51.2 51.2 0 1 0-72.396-72.397L521.728 449.297z" p-id="8584"></path></svg>
 )
 
-export const WindowButtons: React.FC<WindowButtonsProps> = (props = { maximize: false,closeConfirm:true }) => {
+export const WindowButtons: React.FC<WindowButtonsProps> = (props = { maximize: false, closeConfirm: true }) => {
+    const [currentWindow, setCurrentWindow] = useState<BrowserWindow>();
     const [winMaximize, setMaxmize] = useState<boolean>(false);
+
+    useEffect(() => {
+        const window=remote.getCurrentWindow()
+        setCurrentWindow(remote.getCurrentWindow());
+        window.on("maximize", () => {
+            setMaxmize(true);
+        })
+        window.on("unmaximize", () => {
+            setMaxmize(false);
+        })
+    },[])
     const close = () => {
         if (props.closeConfirm) {
             Modal.confirm({
@@ -33,27 +45,18 @@ export const WindowButtons: React.FC<WindowButtonsProps> = (props = { maximize: 
                 content: 'Are you sure you want to Exit?',
                 centered: true,
                 onOk: () => {
-                    ipcRenderer.send('window-close');
+                    currentWindow?.close();
                 }
             })
         }
         else {
-            ipcRenderer.send('window-close');
+            currentWindow?.close();
         }
     }
-    const minimize=() => { ipcRenderer.send('window-minimize') }
-    const maximize = () => {
-        ipcRenderer.send('window-maximize');
-    }
-    const unMaximize = () => {
-        ipcRenderer.send('window-unmaximize');
-    }
-    ipcRenderer.on('window-maximized', () => {
-        setMaxmize(true);
-    })
-    ipcRenderer.on('window-unmaximized', () => {
-        setMaxmize(false);
-    })
+    const minimize = () => currentWindow?.minimize();
+    const maximize = () => currentWindow?.maximize();
+    const unMaximize = () => currentWindow?.minimize();
+    
     return (
         <div className="win-btns-wrapper" color="white">
             <div className="win-btn win-btn-normal" onClick={minimize}>
