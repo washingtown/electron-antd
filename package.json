@@ -13,7 +13,7 @@
     },
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "!node_modules/**/*"
     ],
     "directories": {
       "buildResources": "assets"
@@ -27,7 +27,7 @@
     "start:electron": "electron .",
     "start:server": "craco start",
     "build:renderer":"craco build",
-    "build:main":"ts-node -P electron/tsconfig.json electron/build.ts",
+    "build:main":"ts-node -P scripts/tsconfig.json scripts/build.ts",
     "build": "yarn build:renderer && cross-env NODE_ENV=production yarn build:main",
     "test": "craco test",
     "eject": "react-scripts eject",
