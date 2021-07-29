@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Result } from 'antd';
-import antdIcon from '../images/antd.svg';
-import electronIcon from '../images/electron.svg';
-import craIcon from '../images/cra.svg';
+import antdIcon from '../../images/antd.svg';
+import electronIcon from '../../images/electron.svg';
+import craIcon from '../../images/cra.svg';
 const { shell } = window.require('electron')
 
 const openUrl = (url: string) => {

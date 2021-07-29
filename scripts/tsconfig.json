@@ -22,7 +22,6 @@
 		],
 	},
 	"include": [
-		"../app/typescript/global.d.ts",
 		"./**/*.ts",
 	],
 	"exclude": [

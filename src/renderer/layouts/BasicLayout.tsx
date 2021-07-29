@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ProLayout, {
     MenuDataItem,
     BasicLayoutProps as ProLayoutProps,
@@ -10,6 +10,7 @@ import { IconMap } from '../utils/IconMap';
 import './BasicLayout.less'
 import { WindowButtons } from '../components/window-buttons/WindowButtons';
 import antdIcon from '../images/antd.svg';
+import CreateContext from '../contexts/create-context';
 
 interface BasicLayoutProps extends ProLayoutProps {
 }
@@ -23,6 +24,11 @@ const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] =>
 
 export const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     const [pathname, setPathname] = useState('/home');
+    const createConfig = useContext(CreateContext);
+    const layoutSettings = { ...BasicLayoutSettings };
+    if (!createConfig.showSidebar) {
+        layoutSettings.menuRender = false;
+    }
     const menuItemRender = (item: MenuDataItem, dom: React.ReactNode) => (
         <Link
             to={item.path as string}
@@ -56,8 +62,7 @@ export const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
                         <WindowButtons closeConfirm={true}/>
                     </div>
                 )}
-                {...BasicLayoutSettings}
-
+                {...layoutSettings}
             >
                 {props.children}
             </ProLayout>

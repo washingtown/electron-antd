@@ -55,7 +55,7 @@ export const WindowButtons: React.FC<WindowButtonsProps> = (props = { maximize: 
     }
     const minimize = () => currentWindow?.minimize();
     const maximize = () => currentWindow?.maximize();
-    const unMaximize = () => currentWindow?.minimize();
+    const unMaximize = () => currentWindow?.unmaximize();
     
     return (
         <div className="win-btns-wrapper" color="white">

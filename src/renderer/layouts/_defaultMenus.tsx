@@ -20,6 +20,11 @@ const DefaultMenus: MenuDataItem[] = [
         name: 'Local File',
         icon: 'BarsOutlined',
       },
+      {
+        path: '/example/new-window',
+        name: 'New Window',
+        icon: 'BarsOutlined',
+      },
     ],
   },
   

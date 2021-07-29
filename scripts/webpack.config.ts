@@ -1,8 +1,7 @@
 import path from 'path'
-import { Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import WebpackBar from 'webpackbar';
 import buildConfig from './config'
-
 const { NODE_ENV } = process.env
 const { build, mainSource: appPath } = buildConfig
 const webpackConfig: Configuration = {
@@ -43,6 +42,15 @@ const webpackConfig: Configuration = {
 
   plugins: [
     new WebpackBar({ name: 'Main    ', color: '#799AFE' }),
+    new webpack.DefinePlugin(
+      (()=> {
+        const defines = {}
+        defines['$api'] = 'global.__$api'
+        defines['$tools'] = 'global.__$tools'
+        defines['$store'] = 'global.__$store'
+        return defines
+      })()
+    ),
   ]
 }
 
