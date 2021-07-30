@@ -16,3 +16,8 @@ Start app in development model.
 ### `yarn package`
 
 Package and build a ready for distribution Electron app. You can find the result in `dist` directory.
+
+# Thanks
+
+Part of code copied from
+https://github.com/lanten/electron-antd

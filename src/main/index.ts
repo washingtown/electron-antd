@@ -4,6 +4,4 @@ async function start() {
     await initMain();
     await import('./main');
 }
-
 start()
-

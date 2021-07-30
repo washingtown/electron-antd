@@ -16,3 +16,8 @@ Electron应用样例，使用[Create React App](https://github.com/facebook/crea
 ### `yarn package`
 
 将应用打包为可执行版。打包结果在`dist`目录中。
+
+# 感谢
+部分代码复制自
+
+https://github.com/lanten/electron-antd

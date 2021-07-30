@@ -10,7 +10,7 @@ export const BasicLayoutSettings: ProSettings = {
     "locale": true
   },
   "headerHeight": 48,
-  "title": "Ant Design Pro",
+  "title": "Electron Antd",
   "iconfontUrl": "",
   "primaryColor": "#1890ff"
 }

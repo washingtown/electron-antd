@@ -1,11 +1,18 @@
+import { CreateWindowOptions } from '@src/core/tools'
 import { app, Tray } from 'electron'
 import isDev from 'electron-is-dev'
 
 // import { creatAppTray } from './tray'
 
 $tools.log.info(`Application <${$tools.APP_NAME}> launched.`)
-const createConfig: CreateConfig = {
+const windowOptions: CreateWindowOptions = {
+  windowOptions: {
+    width: 1200,
+    height:800
+  },
+  createConfig: {
     openDevTools:isDev
+  }
 }
 let tray: Tray
 
@@ -20,17 +27,17 @@ if (!appLock) {
 
 app.on('second-instance', () => {
   // 当运行第二个实例时, 打开或激活首页
-    $tools.createWindow('Home', { createConfig });
+    $tools.createWindow('Home', windowOptions);
 })
 
 app.whenReady().then(() => {
     //   tray = creatAppTray()
-    $tools.createWindow('Home', { createConfig });
+    $tools.createWindow('Home', windowOptions);
 });
 
 app.on('activate', () => {
   if (process.platform === 'darwin') {
-      $tools.createWindow('Home', { createConfig });
+      $tools.createWindow('Home', windowOptions);
   }
 })
 
